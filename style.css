@@ -1,6 +1,3 @@
-```css
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -8,66 +5,65 @@
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: Arial, sans-serif;
     overflow: hidden;
 }
 
-/* GENERAL PAGE */
+/* MAIN PAGE */
 
 .page {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-/* QUESTION PAGE */
-
-.question-page {
     background:
-        radial-gradient(circle at 20% 20%, #ffd6e7 0%, transparent 30%),
-        radial-gradient(circle at 80% 80%, #d9c7ff 0%, transparent 30%),
-        linear-gradient(135deg, #fff0f6, #f7f1ff);
-
-    position: relative;
-    overflow: hidden;
+        radial-gradient(circle at top left, #ffd6e8, transparent 35%),
+        radial-gradient(circle at bottom right, #d9c2ff, transparent 35%),
+        linear-gradient(135deg, #fff0f7, #f4efff);
 }
 
-/* GLASS CARD */
+/* CARD */
 
 .card {
-    width: min(90%, 520px);
-    padding: 55px 35px;
+    width: 90%;
+    max-width: 550px;
+
+    padding: 60px 30px;
+
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.75);
 
-    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 35px;
 
-    box-shadow:
-        0 25px 70px rgba(132, 72, 120, 0.18);
+    box-shadow: 0 25px 70px rgba(100, 50, 100, 0.2);
 
-    z-index: 5;
+    backdrop-filter: blur(20px);
 }
 
-.emoji {
-    font-size: 65px;
+.heart {
+    font-size: 70px;
     margin-bottom: 15px;
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(38px, 7vw, 58px);
-    color: #3d2445;
+    font-family: Georgia, serif;
+
+    font-size: 50px;
+
+    color: #3f2747;
+
     margin-bottom: 15px;
 }
 
-.subtitle {
-    color: #78566f;
-    font-size: 17px;
+.card p {
+    color: #76566e;
+
+    font-size: 18px;
+
     margin-bottom: 35px;
 }
 
@@ -75,204 +71,119 @@ h1 {
 
 .buttons {
     display: flex;
+
     justify-content: center;
-    gap: 18px;
-    position: relative;
-    min-height: 65px;
+
+    gap: 20px;
 }
 
 button {
     border: none;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 17px;
-    font-weight: 700;
-    padding: 15px 30px;
+
+    padding: 16px 35px;
+
     border-radius: 50px;
-    transition: 0.25s ease;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
-.yes-btn {
-    background: linear-gradient(135deg, #ff4f9a, #ff78b7);
+/* YES */
+
+#yesBtn {
+    background: linear-gradient(135deg, #ff4fa3, #ff78ba);
+
     color: white;
 
-    box-shadow:
-        0 10px 25px rgba(255, 79, 154, 0.35);
+    box-shadow: 0 10px 25px rgba(255, 70, 150, 0.3);
 }
 
-.yes-btn:hover {
-    transform: scale(1.08);
+#yesBtn:hover {
+    transform: scale(1.1);
 }
 
-.no-btn {
+/* NO */
+
+#noBtn {
     background: white;
-    color: #79536e;
 
-    border: 2px solid #f0d9e8;
+    color: #76566e;
 
-    position: relative;
-}
-
-.no-btn:hover {
-    transform: scale(0.95);
+    border: 2px solid #efdce9;
 }
 
 #message {
     margin-top: 20px;
-    color: #ff4f9a;
-    font-weight: 700;
+
+    color: #ff4fa3;
+
+    font-weight: bold;
 }
 
-/* FLOATING HEARTS */
-
-.hearts span {
-    position: absolute;
-    font-size: 25px;
-    animation: float 6s infinite ease-in-out;
-    opacity: 0.65;
-}
-
-.hearts span:nth-child(1) {
-    left: 10%;
-    top: 15%;
-    animation-delay: 0s;
-}
-
-.hearts span:nth-child(2) {
-    left: 80%;
-    top: 20%;
-    animation-delay: 1s;
-}
-
-.hearts span:nth-child(3) {
-    left: 20%;
-    top: 75%;
-    animation-delay: 2s;
-}
-
-.hearts span:nth-child(4) {
-    left: 85%;
-    top: 70%;
-    animation-delay: 3s;
-}
-
-.hearts span:nth-child(5) {
-    left: 50%;
-    top: 8%;
-    animation-delay: 4s;
-}
-
-@keyframes float {
-
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-30px) rotate(15deg);
-    }
-}
 
 /* FLOWER PAGE */
 
-.flower-page {
+.flowerPage {
     display: none;
 
-    background:
-        radial-gradient(circle at 50% 20%, #ffe3ef, transparent 35%),
-        linear-gradient(135deg, #fff1f7, #eee5ff);
-
     text-align: center;
-    overflow: hidden;
 }
 
-.flower-content {
-    padding: 30px;
+.flowerContent {
     animation: appear 1s ease;
 }
 
-.big-heart {
-    font-size: 80px;
-    animation: heartbeat 1.5s infinite;
+.bigHeart {
+    font-size: 90px;
+
+    animation: heartbeat 1.3s infinite;
 }
 
-.flower-page h1 {
-    color: #5a3158;
+.flowerPage h1 {
+    color: #593254;
 }
 
-.flower-page p {
-    color: #79536e;
-    font-size: 19px;
-    margin: 10px 0;
-}
+.flowerPage p {
+    color: #76566e;
 
-.love-text {
-    line-height: 1.7;
-    margin-top: 20px !important;
+    font-size: 20px;
+
+    margin: 15px;
 }
 
 /* FLOWERS */
 
 .flowers {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    gap: 15px;
-
-    margin: 35px auto;
-
     font-size: 65px;
-}
 
-.flower {
+    margin: 40px 0;
+
     animation: flowerFloat 2s infinite ease-in-out;
 }
 
-.flower:nth-child(2) {
-    animation-delay: .2s;
-}
-
-.flower:nth-child(3) {
-    animation-delay: .4s;
-}
-
-.flower:nth-child(4) {
-    animation-delay: .6s;
-}
-
-.flower:nth-child(5) {
-    animation-delay: .8s;
-}
-
-.flower:nth-child(6) {
-    animation-delay: 1s;
-}
-
-.flower:nth-child(7) {
-    animation-delay: 1.2s;
-}
-
-@keyframes flowerFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
+.loveMessage {
+    line-height: 1.7;
 }
 
 /* AGAIN BUTTON */
 
-.again-btn {
-    background: #5a3158;
+.backBtn {
+    background: #593254;
+
     color: white;
+
+    margin-top: 20px;
 }
 
-.again-btn:hover {
-    transform: scale(1.06);
+.backBtn:hover {
+    transform: scale(1.08);
 }
+
 
 /* ANIMATIONS */
 
@@ -287,20 +198,34 @@ button {
     }
 }
 
+@keyframes flowerFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
 @keyframes appear {
 
     from {
         opacity: 0;
+
         transform: translateY(30px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 }
 
-/* MOBILE */
+
+/* PHONE */
 
 @media (max-width: 600px) {
 
@@ -308,22 +233,21 @@ button {
         padding: 45px 20px;
     }
 
+    h1 {
+        font-size: 38px;
+    }
+
     .buttons {
         gap: 10px;
     }
 
     button {
-        padding: 13px 24px;
-        font-size: 15px;
+        padding: 14px 25px;
+        font-size: 16px;
     }
 
     .flowers {
-        font-size: 42px;
-        gap: 7px;
+        font-size: 40px;
     }
 
-    .big-heart {
-        font-size: 65px;
-    }
 }
-```
