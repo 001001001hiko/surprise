@@ -1,17 +1,23 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100vh;
     overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
-/* MAIN PAGE */
 
-.page {
+/* =========================
+   QUESTION PAGE
+========================= */
+
+#questionPage {
+
     width: 100vw;
     height: 100vh;
 
@@ -20,46 +26,59 @@ body {
     align-items: center;
 
     background:
-        radial-gradient(circle at top left, #ffd6e8, transparent 35%),
-        radial-gradient(circle at bottom right, #d9c2ff, transparent 35%),
+        radial-gradient(circle at 15% 20%, #ffd1e6, transparent 30%),
+        radial-gradient(circle at 85% 80%, #d8c5ff, transparent 30%),
         linear-gradient(135deg, #fff0f7, #f4efff);
 }
+
 
 /* CARD */
 
 .card {
+
     width: 90%;
-    max-width: 550px;
+    max-width: 600px;
 
     padding: 60px 30px;
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.8);
 
     border-radius: 35px;
 
     box-shadow: 0 25px 70px rgba(100, 50, 100, 0.2);
 
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
 }
 
-.heart {
+
+/* HEART */
+
+.topHeart {
     font-size: 70px;
     margin-bottom: 15px;
 }
 
-h1 {
+
+/* TITLE */
+
+.card h1 {
+
     font-family: Georgia, serif;
 
     font-size: 50px;
 
-    color: #3f2747;
+    color: #42294a;
 
     margin-bottom: 15px;
 }
 
+
+/* TEXT */
+
 .card p {
+
     color: #76566e;
 
     font-size: 18px;
@@ -67,17 +86,27 @@ h1 {
     margin-bottom: 35px;
 }
 
-/* BUTTONS */
 
-.buttons {
+/* BUTTON AREA */
+
+.buttonArea {
+
     display: flex;
 
     justify-content: center;
 
+    align-items: center;
+
     gap: 20px;
+
+    min-height: 70px;
 }
 
+
+/* ALL BUTTONS */
+
 button {
+
     border: none;
 
     padding: 16px 35px;
@@ -90,142 +119,203 @@ button {
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: transform 0.2s;
 }
+
 
 /* YES */
 
 #yesBtn {
-    background: linear-gradient(135deg, #ff4fa3, #ff78ba);
+
+    background: linear-gradient(
+        135deg,
+        #ff3f98,
+        #ff79b9
+    );
 
     color: white;
 
-    box-shadow: 0 10px 25px rgba(255, 70, 150, 0.3);
+    box-shadow:
+        0 10px 25px rgba(255, 60, 150, 0.35);
 }
 
 #yesBtn:hover {
+
     transform: scale(1.1);
 }
+
 
 /* NO */
 
 #noBtn {
+
     background: white;
 
     color: #76566e;
 
     border: 2px solid #efdce9;
+
+    position: relative;
 }
 
+
+/* MESSAGE */
+
 #message {
+
     margin-top: 20px;
 
-    color: #ff4fa3;
+    color: #ff3f98;
+
+    font-size: 18px;
 
     font-weight: bold;
 }
 
 
-/* FLOWER PAGE */
+/* =========================
+   FLOWER PAGE
+========================= */
 
-.flowerPage {
+#flowerPage {
+
+    width: 100vw;
+    height: 100vh;
+
     display: none;
 
+    justify-content: center;
+    align-items: center;
+
     text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 20%, #ffe0ed, transparent 35%),
+        linear-gradient(135deg, #fff1f7, #eee5ff);
 }
 
+
+/* FLOWER CONTENT */
+
 .flowerContent {
+
+    width: 90%;
+
+    max-width: 700px;
+
     animation: appear 1s ease;
 }
 
+
+/* BIG HEART */
+
 .bigHeart {
+
     font-size: 90px;
 
     animation: heartbeat 1.3s infinite;
 }
 
-.flowerPage h1 {
+
+/* FLOWER TITLE */
+
+.flowerContent h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 48px;
+
     color: #593254;
-}
-
-.flowerPage p {
-    color: #76566e;
-
-    font-size: 20px;
 
     margin: 15px;
 }
 
+
+/* FLOWER TEXT */
+
+.flowerContent p {
+
+    font-size: 20px;
+
+    color: #76566e;
+
+    margin: 15px;
+}
+
+
 /* FLOWERS */
 
 .flowers {
+
     font-size: 65px;
 
     margin: 40px 0;
 
-    animation: flowerFloat 2s infinite ease-in-out;
+    animation: floating 2s infinite ease-in-out;
 }
 
-.loveMessage {
+
+/* LOVE TEXT */
+
+.loveText {
+
     line-height: 1.7;
 }
 
-/* AGAIN BUTTON */
 
-.backBtn {
-    background: #593254;
-
-    color: white;
-
-    margin-top: 20px;
-}
-
-.backBtn:hover {
-    transform: scale(1.08);
-}
-
-
-/* ANIMATIONS */
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes heartbeat {
 
-    0%, 100% {
+    0% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.15);
     }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-@keyframes flowerFloat {
 
-    0%, 100% {
+@keyframes floating {
+
+    0% {
         transform: translateY(0);
     }
 
     50% {
         transform: translateY(-15px);
     }
-}
 
-@keyframes appear {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
+    100% {
         transform: translateY(0);
     }
 }
 
 
-/* PHONE */
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   PHONE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -233,11 +323,11 @@ button {
         padding: 45px 20px;
     }
 
-    h1 {
+    .card h1 {
         font-size: 38px;
     }
 
-    .buttons {
+    .buttonArea {
         gap: 10px;
     }
 
@@ -248,6 +338,10 @@ button {
 
     .flowers {
         font-size: 40px;
+    }
+
+    .flowerContent h1 {
+        font-size: 36px;
     }
 
 }
