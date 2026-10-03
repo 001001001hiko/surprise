@@ -2,73 +2,562 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Do You Love Me? ❤️</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Do You Love Me? ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   QUESTION PAGE
+========================= */
+
+#questionPage {
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 15% 20%,
+        #ffd0e5,
+        transparent 30%),
+
+        radial-gradient(circle at 85% 80%,
+        #d9c5ff,
+        transparent 30%),
+
+        linear-gradient(135deg,
+        #fff0f7,
+        #f2edff);
+}
+
+
+/* CARD */
+
+.card {
+
+    width: 90%;
+    max-width: 600px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(100,50,100,0.2);
+}
+
+
+.heart {
+
+    font-size: 70px;
+
+    margin-bottom: 15px;
+}
+
+
+h1 {
+
+    font-family: Georgia, serif;
+
+    font-size: 50px;
+
+    color: #40274a;
+
+    margin-bottom: 15px;
+}
+
+
+.card p {
+
+    color: #76566e;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+/* BUTTONS */
+
+.buttonArea {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+button {
+
+    border: none;
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* YES */
+
+#yesBtn {
+
+    background:
+        linear-gradient(135deg,
+        #ff3f98,
+        #ff78b9);
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,60,150,0.3);
+}
+
+
+#yesBtn:hover {
+
+    transform: scale(1.08);
+}
+
+
+/* NO */
+
+#noBtn {
+
+    background: white;
+
+    color: #76566e;
+
+    border: 2px solid #efdce9;
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+/* MESSAGE */
+
+#message {
+
+    margin-top: 20px;
+
+    color: #ff3f98;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   FLOWER PAGE
+========================= */
+
+#flowerPage {
+
+    display: none;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 20%,
+        #ffe0ed,
+        transparent 35%),
+
+        linear-gradient(135deg,
+        #fff1f7,
+        #eee5ff);
+}
+
+
+.flowerContent {
+
+    width: 90%;
+
+    max-width: 700px;
+}
+
+
+.bigHeart {
+
+    font-size: 90px;
+
+    animation: heartBeat 1.2s infinite;
+}
+
+
+.flowerContent h1 {
+
+    color: #593254;
+
+    margin: 20px;
+}
+
+
+.flowerContent p {
+
+    color: #76566e;
+
+    font-size: 20px;
+
+    margin: 15px;
+}
+
+
+.flowers {
+
+    font-size: 65px;
+
+    margin: 40px 0;
+
+    animation: floatFlowers 2s infinite;
+}
+
+
+.loveText {
+
+    line-height: 1.7;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes heartBeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+@keyframes floatFlowers {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* PHONE */
+
+@media(max-width:600px) {
+
+    .card {
+        padding: 45px 20px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    button {
+        padding: 14px 25px;
+        font-size: 16px;
+    }
+
+    .flowers {
+        font-size: 40px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- FIRST PAGE -->
-    <div id="questionPage">
 
-        <div class="card">
+<!-- =========================
+     QUESTION
+========================= -->
 
-            <div class="topHeart">❤️</div>
+<div id="questionPage">
 
-            <h1>Do You Love Me?</h1>
+    <div class="card">
 
-            <p>Be honest... I already know the answer ❤️</p>
+        <div class="heart">
+            ❤️
+        </div>
 
-            <div class="buttonArea">
+        <h1>
+            Do You Love Me?
+        </h1>
 
-                <button id="yesBtn">
-                    Yes ❤️
-                </button>
+        <p>
+            Be honest... I already know the answer ❤️
+        </p>
 
-                <button id="noBtn">
-                    No 😢
-                </button>
 
-            </div>
+        <div class="buttonArea">
 
-            <div id="message"></div>
+            <button id="yesBtn">
+                Yes ❤️
+            </button>
+
+            <button id="noBtn">
+                No 😢
+            </button>
 
         </div>
 
+
+        <div id="message"></div>
+
     </div>
 
+</div>
 
-    <!-- SECOND PAGE -->
-    <div id="flowerPage">
 
-        <div class="flowerContent">
 
-            <div class="bigHeart">💖</div>
+<!-- =========================
+     FLOWER PAGE
+========================= -->
 
-            <h1>Yay! I Knew It! 🥰</h1>
+<div id="flowerPage">
 
-            <p>You just made my heart bloom! 🌸</p>
+    <div class="flowerContent">
 
-            <div class="flowers">
-                🌹 🌷 🌸 🌺 🌻 🌷 🌹
-            </div>
-
-            <p class="loveText">
-                These flowers are for you ❤️<br>
-                Because you deserve all the beautiful things in the world.
-            </p>
-
+        <div class="bigHeart">
+            💖
         </div>
 
+        <h1>
+            Yay! I Knew It! 🥰
+        </h1>
+
+        <p>
+            You just made my heart bloom! 🌸
+        </p>
+
+        <div class="flowers">
+            🌹 🌷 🌸 🌺 🌻 🌷 🌹
+        </div>
+
+        <p class="loveText">
+            These flowers are for you ❤️
+            <br>
+            Because you deserve all the
+            beautiful things in the world.
+        </p>
+
     </div>
 
+</div>
 
-    <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+
+
+<script>
+
+
+/* GET BUTTONS */
+
+const yesButton =
+    document.getElementById("yesBtn");
+
+const noButton =
+    document.getElementById("noBtn");
+
+const questionPage =
+    document.getElementById("questionPage");
+
+const flowerPage =
+    document.getElementById("flowerPage");
+
+const message =
+    document.getElementById("message");
+
+
+
+/* =========================
+   YES
+========================= */
+
+yesButton.addEventListener("click", function() {
+
+    questionPage.style.display = "none";
+
+    flowerPage.style.display = "flex";
+
+});
+
+
+
+/* =========================
+   MOVE NO BUTTON
+========================= */
+
+function runAway() {
+
+    /* Make it independent from
+       the original position */
+
+    noButton.style.position = "fixed";
+
+
+    /* Screen dimensions */
+
+    const width =
+        window.innerWidth;
+
+    const height =
+        window.innerHeight;
+
+
+    /* Button dimensions */
+
+    const buttonWidth =
+        noButton.offsetWidth;
+
+    const buttonHeight =
+        noButton.offsetHeight;
+
+
+    /* Safe boundaries */
+
+    const maxX =
+        width - buttonWidth - 20;
+
+    const maxY =
+        height - buttonHeight - 20;
+
+
+    /* Random location */
+
+    const randomX =
+        Math.floor(
+            Math.random() *
+            Math.max(maxX, 20)
+        );
+
+
+    const randomY =
+        Math.floor(
+            Math.random() *
+            Math.max(maxY, 20)
+        );
+
+
+    /* MOVE */
+
+    noButton.style.left =
+        randomX + "px";
+
+    noButton.style.top =
+        randomY + "px";
+
+
+    /* MESSAGE */
+
+    message.innerHTML =
+        "Nice try! 😏❤️ Try again!";
+
+}
+
+
+
+/* =========================
+   COMPUTER
+========================= */
+
+noButton.addEventListener(
+    "mouseenter",
+    runAway
+);
+
+
+
+/* =========================
+   PHONE
+========================= */
+
+noButton.addEventListener(
+    "touchstart",
+    function(event) {
+
+        event.preventDefault();
+
+        runAway();
+
+    }
+);
+
+
+
+/* =========================
+   CLICK
+========================= */
+
+noButton.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        runAway();
+
+    }
+);
+
+
+</script>
+
 
 </body>
 
