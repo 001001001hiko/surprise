@@ -1,92 +1,82 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Love Me? 💗</title>
+
+    <title>Do You Love Me? ❤️</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- QUESTION PAGE -->
-    <section id="questionPage" class="page question-page">
 
-        <div class="hearts">
-            <span>💗</span>
-            <span>💕</span>
-            <span>💖</span>
-            <span>💗</span>
-            <span>💕</span>
-        </div>
+    <div id="questionPage" class="page">
 
         <div class="card">
 
-            <div class="emoji">🥹💗</div>
+            <div class="heart">❤️</div>
 
             <h1>Do You Love Me?</h1>
 
-            <p class="subtitle">
-                Be honest... I already know the answer. ❤️
-            </p>
+            <p>Be honest... I already know the answer ❤️</p>
 
             <div class="buttons">
-                <button id="yesBtn" class="yes-btn">
+
+                <button id="yesBtn">
                     Yes ❤️
                 </button>
 
-                <button id="noBtn" class="no-btn">
+                <button id="noBtn">
                     No 😢
                 </button>
+
             </div>
 
-            <p id="message"></p>
+            <div id="message"></div>
 
         </div>
-    </section>
+
+    </div>
 
 
     <!-- FLOWER PAGE -->
-    <section id="flowerPage" class="page flower-page">
 
-        <div class="flower-content">
+    <div id="flowerPage" class="page flowerPage">
 
-            <div class="big-heart">💖</div>
+        <div class="flowerContent">
+
+            <div class="bigHeart">💖</div>
 
             <h1>Yay! I Knew It! 🥰</h1>
 
-            <p>
-                You just made my heart bloom. 🌸
-            </p>
-
-            <p class="love-text">
-                These flowers are for you because<br>
-                you deserve all the beautiful things in the world. 💐
-            </p>
+            <p>You just made my heart bloom! 🌸</p>
 
             <div class="flowers">
 
-                <div class="flower">🌹</div>
-                <div class="flower">🌷</div>
-                <div class="flower">🌸</div>
-                <div class="flower">🌻</div>
-                <div class="flower">🌺</div>
-                <div class="flower">🌹</div>
-                <div class="flower">🌷</div>
+                🌹 🌷 🌸 🌺 🌻 🌷 🌹
 
             </div>
 
-            <button class="again-btn" onclick="goBack()">
-                ❤️ Read It Again
+            <p class="loveMessage">
+                These flowers are for you ❤️<br>
+                Because you deserve all the beautiful things in the world.
+            </p>
+
+            <button onclick="goBack()" class="backBtn">
+                ❤️ Again
             </button>
 
         </div>
 
-    </section>
+    </div>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
-```
