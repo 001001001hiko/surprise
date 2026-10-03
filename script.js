@@ -1,253 +1,103 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+// GET THE ELEMENTS
 
-body {
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-}
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 
-/* MAIN PAGE */
+const questionPage = document.getElementById("questionPage");
+const flowerPage = document.getElementById("flowerPage");
 
-.page {
-    width: 100vw;
-    height: 100vh;
+const message = document.getElementById("message");
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    background:
-        radial-gradient(circle at top left, #ffd6e8, transparent 35%),
-        radial-gradient(circle at bottom right, #d9c2ff, transparent 35%),
-        linear-gradient(135deg, #fff0f7, #f4efff);
-}
+// ================================
+// YES BUTTON
+// ================================
 
-/* CARD */
+yesBtn.onclick = function () {
 
-.card {
-    width: 90%;
-    max-width: 550px;
+    // Hide question
+    questionPage.style.display = "none";
 
-    padding: 60px 30px;
+    // Show flowers
+    flowerPage.style.display = "flex";
 
-    text-align: center;
+};
 
-    background: rgba(255, 255, 255, 0.75);
 
-    border-radius: 35px;
+// ================================
+// MOVE NO BUTTON
+// ================================
 
-    box-shadow: 0 25px 70px rgba(100, 50, 100, 0.2);
+function moveNoButton() {
 
-    backdrop-filter: blur(20px);
-}
+    // Make the button fixed to the screen
+    noBtn.style.position = "fixed";
 
-.heart {
-    font-size: 70px;
-    margin-bottom: 15px;
-}
+    // Get screen size
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-h1 {
-    font-family: Georgia, serif;
+    // Get button size
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
 
-    font-size: 50px;
+    // Calculate safe area
+    const maxX = screenWidth - buttonWidth - 20;
+    const maxY = screenHeight - buttonHeight - 20;
 
-    color: #3f2747;
+    // Generate random position
+    const randomX =
+        Math.floor(Math.random() * Math.max(maxX, 20));
 
-    margin-bottom: 15px;
-}
+    const randomY =
+        Math.floor(Math.random() * Math.max(maxY, 20));
 
-.card p {
-    color: #76566e;
+    // Move button
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 
-    font-size: 18px;
-
-    margin-bottom: 35px;
-}
-
-/* BUTTONS */
-
-.buttons {
-    display: flex;
-
-    justify-content: center;
-
-    gap: 20px;
-}
-
-button {
-    border: none;
-
-    padding: 16px 35px;
-
-    border-radius: 50px;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-/* YES */
-
-#yesBtn {
-    background: linear-gradient(135deg, #ff4fa3, #ff78ba);
-
-    color: white;
-
-    box-shadow: 0 10px 25px rgba(255, 70, 150, 0.3);
-}
-
-#yesBtn:hover {
-    transform: scale(1.1);
-}
-
-/* NO */
-
-#noBtn {
-    background: white;
-
-    color: #76566e;
-
-    border: 2px solid #efdce9;
-}
-
-#message {
-    margin-top: 20px;
-
-    color: #ff4fa3;
-
-    font-weight: bold;
+    // Message
+    message.innerHTML = "Nice try! 😏❤️";
 }
 
 
-/* FLOWER PAGE */
+// ================================
+// COMPUTER
+// ================================
 
-.flowerPage {
-    display: none;
-
-    text-align: center;
-}
-
-.flowerContent {
-    animation: appear 1s ease;
-}
-
-.bigHeart {
-    font-size: 90px;
-
-    animation: heartbeat 1.3s infinite;
-}
-
-.flowerPage h1 {
-    color: #593254;
-}
-
-.flowerPage p {
-    color: #76566e;
-
-    font-size: 20px;
-
-    margin: 15px;
-}
-
-/* FLOWERS */
-
-.flowers {
-    font-size: 65px;
-
-    margin: 40px 0;
-
-    animation: flowerFloat 2s infinite ease-in-out;
-}
-
-.loveMessage {
-    line-height: 1.7;
-}
-
-/* AGAIN BUTTON */
-
-.backBtn {
-    background: #593254;
-
-    color: white;
-
-    margin-top: 20px;
-}
-
-.backBtn:hover {
-    transform: scale(1.08);
-}
+noBtn.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
 
 
-/* ANIMATIONS */
+// ================================
+// MOUSE CLICK
+// ================================
 
-@keyframes heartbeat {
+noBtn.addEventListener(
+    "click",
+    function(event) {
 
-    0%, 100% {
-        transform: scale(1);
+        event.preventDefault();
+
+        moveNoButton();
+
     }
+);
 
-    50% {
-        transform: scale(1.15);
+
+// ================================
+// PHONE
+// ================================
+
+noBtn.addEventListener(
+    "touchstart",
+    function(event) {
+
+        event.preventDefault();
+
+        moveNoButton();
+
     }
-}
-
-@keyframes flowerFloat {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-@keyframes appear {
-
-    from {
-        opacity: 0;
-
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-}
-
-
-/* PHONE */
-
-@media (max-width: 600px) {
-
-    .card {
-        padding: 45px 20px;
-    }
-
-    h1 {
-        font-size: 38px;
-    }
-
-    .buttons {
-        gap: 10px;
-    }
-
-    button {
-        padding: 14px 25px;
-        font-size: 16px;
-    }
-
-    .flowers {
-        font-size: 40px;
-    }
-
-}
+);
